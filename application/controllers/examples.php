@@ -10,6 +10,8 @@ class Examples extends CI_Controller {
 		$this->load->helper('url');
 
 		$this->load->library('grocery_CRUD');
+                
+                
 	}
 
 	public function _example_output($output = null)
@@ -32,6 +34,7 @@ class Examples extends CI_Controller {
 
 	public function offices_management()
 	{
+            $this->config() ;
 		try{
 			$crud = new grocery_CRUD();
 
@@ -52,9 +55,12 @@ class Examples extends CI_Controller {
 
 	public function employees_management()
 	{
-			$crud = new grocery_CRUD();
-
-			$crud->set_theme('datatables');
+	      $this->config->load('grocery_crud');
+		$this->config->set_item('grocery_crud_dialog_forms',true);
+		$this->config->set_item('grocery_crud_default_per_page',10); 	
+            $crud = new grocery_CRUD();
+               
+			$crud->set_theme('twitter-bootstrap');
 			$crud->set_table('employees');
 			$crud->set_relation('officeCode','offices','city');
 			$crud->display_as('officeCode','Office City');
@@ -123,6 +129,7 @@ class Examples extends CI_Controller {
 
 	public function film_management()
 	{
+               
 		$crud = new grocery_CRUD();
 
 		$crud->set_table('film');
@@ -136,9 +143,10 @@ class Examples extends CI_Controller {
 
 		$this->_example_output($output);
 	}
-
+   
 	public function film_management_twitter_bootstrap()
 	{
+            
 		try{
 			$crud = new grocery_CRUD();
 
@@ -165,7 +173,7 @@ class Examples extends CI_Controller {
 		$this->config->set_item('grocery_crud_default_per_page',10);
 
 		$output1 = $this->offices_management2();
-
+                
 		$output2 = $this->employees_management2();
 
 		$output3 = $this->customers_management2();
@@ -246,5 +254,10 @@ class Examples extends CI_Controller {
 			return $output;
 		}
 	}
+           public function config() {
+               $this->config->load('grocery_crud');
+		$this->config->set_item('grocery_crud_dialog_forms',true);
+		$this->config->set_item('grocery_crud_default_per_page',10); 
+        }
 
 }

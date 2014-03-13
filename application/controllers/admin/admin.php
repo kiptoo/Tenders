@@ -34,16 +34,40 @@ class Admin extends CI_Controller {
      
        public function user_management()
 	{
-		try{
-                    /*$this->config->load('grocery_crud');
-		$this->config->set_item('grocery_crud_dialog_forms',true);
-		$this->config->set_item('grocery_crud_default_per_page',10);
-                */
+	  $this->config() ;	
+           try{
+               
+			$crud = new grocery_CRUD();
+                 
+		       $crud->set_theme('datatables');
+			$crud->set_table('user_meta');
+			//$crud->set_subject('Office');
+			//$crud->required_fields('city');
+			//$crud->columns('city','country','phone','addressLine1','postalCode');
+
+			$output = $crud->render();
+                        
+
+			$this->_example_output($output);
+
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	}
+             public function admin_management()
+	{
+                 $this->config() ;
+                 try{
+                
 			$crud = new grocery_CRUD();
                  
 		
 			$crud->set_theme('datatables');
-			$crud->set_table('user_meta');
+			$crud->set_table('system_users');
+                      $crud->columns('user_id','username','password','proc_entity','active');
+                      $crud->unset_columns('salt','lastlogin');
+                    $crud->set_relation('user_id','user_meta','First_name');
+                    $crud->set_relation('proc_entity','procurement','name');
 			//$crud->set_subject('Office');
 			//$crud->required_fields('city');
 			//$crud->columns('city','country','phone','addressLine1','postalCode');
@@ -59,7 +83,8 @@ class Admin extends CI_Controller {
 	}
           public function role_management()
 	{
-		try{
+		$this->config() ; 
+              try{
 			$crud = new grocery_CRUD();
 
 			$crud->set_theme('datatables');
@@ -80,6 +105,7 @@ class Admin extends CI_Controller {
         
          public function privelege_management()
 	{
+             $this->config() ;
 		try{
 			$crud = new grocery_CRUD();
 
@@ -97,6 +123,12 @@ class Admin extends CI_Controller {
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
 	}
+          public function config() {
+               $this->config->load('grocery_crud');
+		$this->config->set_item('grocery_crud_dialog_forms',true);
+		$this->config->set_item('grocery_crud_default_per_page',10); 
+        }
+     
 
 }
 

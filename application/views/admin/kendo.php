@@ -70,7 +70,7 @@
                                     dataType: "json"
                                 },
                                 create: {
-                                     url: crudServiceBaseUrl + "/users_create",
+                                     url: "http://localhost/Tenders_CI/index.php/admin/users/users_create",
                                     dataType: "json"
                                   /*  complete: function (e) {
                 $("#grid").data("kendoGrid").dataSource.read();
@@ -116,7 +116,7 @@
                             { field: "email",title: "email",width: 50},
                             { field: "active",title: "active",width: 50},
                              { field: "createdate",title: "createdate",width: 50},
-                             { command: ["edit","create"], title: "&nbsp;", width: "100px" }
+                            { command: ["edit","destroy"], title: "&nbsp;", width: "100px" }
                         ],
                         editable: "popup"
                     });

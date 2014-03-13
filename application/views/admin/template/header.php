@@ -140,7 +140,10 @@ foreach($css_files as $file): ?>
                </a>
                <ul class="sub-menu">
                   <li >
-                     <a href='<?php echo site_url('admin/admin/user_management')?>'>Manage users</a>
+                     <a href='<?php echo site_url('admin/admin/user_management')?>'>Manage All users</a>
+                  </li>
+                   <li >
+                     <a href='<?php echo site_url('admin/admin/admin_management')?>'>Manage Admin users</a>
                   </li>
                   <li >
                      <a href='<?php echo site_url('admin/admin/role_management')?>'>
