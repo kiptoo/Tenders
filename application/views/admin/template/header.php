@@ -16,6 +16,11 @@ foreach($css_files as $file): ?>
     <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
  
 <?php endforeach; ?>
+    <?php foreach($js_files as $file): ?>
+ 
+    <script src="<?php echo $file; ?>"></script>
+<?php endforeach; ?>
+ 
 
    <!-- BEGIN GLOBAL MANDATORY STYLES -->          
    <link href='<?php echo base_url('assets/plugins/font-awesome/css/font-awesome.min.css')?>' rel="stylesheet" type="text/css"/>
@@ -29,7 +34,7 @@ foreach($css_files as $file): ?>
    <link href='<?php echo base_url('assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css')?>' rel="stylesheet" type="text/css" />
    <link href='<?php echo base_url('assets/plugins/fullcalendar/fullcalendar/fullcalendar.css')?>'  rel="stylesheet" type="text/css"/>
    <link href='<?php echo base_url('assets/plugins/jqvmap/jqvmap/jqvmap.css')?>' rel="stylesheet" type="text/css"/>
-   <link href='<?php echo base_url(' assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css')?>' rel="stylesheet" type="text/css"/>
+   <link href='<?php echo base_url('assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css')?>' rel="stylesheet" type="text/css"/>
    <!-- END PAGE LEVEL PLUGIN STYLES -->
 
    <!-- BEGIN THEME STYLES --> 
@@ -49,11 +54,11 @@ foreach($css_files as $file): ?>
    
    <!-- KENDO UI Styles -->
        
-    <link  href='<?php echo base_url('KendoUI/styles/kendo.common.min.css')?>'  rel="stylesheet">
-    <link href='<?php echo base_url('KendoUI/styles/kendo.metro.min.css')?>' rel="stylesheet">
+    <link  href='<?php //echo base_url('KendoUI/styles/kendo.common.min.css')?>'  rel="stylesheet"/>
+    <link href='<?php// echo base_url('KendoUI/styles/kendo.metro.min.css')?>' rel="stylesheet"/>
 
-    <script src='<?php echo base_url('KendoUI/js/jquery.min.js')?>'></script>
-    <script src='<?php echo base_url('KendoUI/js/kendo.web.min.js')?>'></script>
+    <script src='<?php //echo base_url('KendoUI/js/jquery.min.js')?>'></script>
+    <script src='<?php //echo base_url('KendoUI/js/kendo.web.min.js')?>'></script>
     
  
 </head>
@@ -153,15 +158,12 @@ foreach($css_files as $file): ?>
                      <a href='<?php echo site_url('admin/admin/privelege_management')?>'>
                      Manage privileges</a>
                   </li>
-                  <li >
-                     <a href='<?php echo site_url('admin/admin/rolemembers_management')?>'>
-                     Manage Role members</a>
-                  </li>
+                 
                </ul>
             </li>
            
                      <li>
-               <a href="index.html">
+               <a  href='<?php echo site_url('admin/subscribers')?>'>
                <i class="icon-envelope"></i> 
                <span class="title">Subscribers</span>
                <span class="selected"></span>
@@ -175,13 +177,17 @@ foreach($css_files as $file): ?>
                </a>
                <ul class="sub-menu">
                   <li >
-                     <a href="layout_language_bar.html">Manage Entities</a>
+                     <a href='<?php echo site_url('admin/procurement')?>'>Manage Entities</a>
                   </li>
                   <li >
-                     <a href="layout_horizontal_sidebar_menu.html">
+                     <a href='<?php echo site_url('admin/procurement/Entity_type')?>'>
                      Manage Entity types</a>
                   </li>
-                
+                 <li >
+                      <i class="icon-map-marker"></i> 
+                     <a href='<?php echo site_url('admin/procurement/locations')?>'>
+                     Manage Locations</a>
+                  </li>
                  
                </ul>
             </li>
@@ -193,40 +199,35 @@ foreach($css_files as $file): ?>
                </a>
                <ul class="sub-menu">
                   <li >
-                     <a href="layout_language_bar.html">Manage Tenders</a>
+                     <a href='<?php echo site_url('admin/tenders')?>'>
+                         Manage Tenders</a>
                   </li>
                   <li >
-                     <a href="layout_horizontal_sidebar_menu.html">
+                     <a href='<?php echo site_url('admin/tenders/types')?>'>
                      Manage Types</a>
                   </li>
                 <li >
-                     <a href="layout_horizontal_sidebar_menu.html">
+                     <a href='<?php echo site_url('admin/tenders/categories')?>'>
                      Manage Categories</a>
                   </li>
                  
                </ul>
             </li>
                          <li>
-               <a href="index.html">
+               <a href='<?php echo site_url('admin/regions')?>'>
                <i class="icon-map-marker"></i> 
                <span class="title">Regions</span>
                <span class="selected"></span>
                </a>
             </li>
                        <li>
-               <a href="index.html">
+               <a href='<?php echo site_url('admin/notification')?>'>
                <i class="icon-bell"></i> 
                <span class="title">Notifications</span>
                <span class="selected"></span>
                </a>
             </li>
-                        <li>
-               <a href="index.html">
-               <i class="icon-map-marker"></i> 
-               <span class="title">Locations</span>
-               <span class="selected"></span>
-               </a>
-            </li>
+          
     </ul>
 </div>
 <!-- END SIDEBAR -->

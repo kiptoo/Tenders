@@ -65,9 +65,10 @@
 	</style>
 </head>
 <body>
-<?php
-echo $data;
-?>
+
+   
+
+
 <div id="container">
 	<h1>Welcome to CodeIgniter!</h1>
 

@@ -41,7 +41,7 @@
             
                   </div>-->
                      <div>
-        <?php echo $output; ?>
+        <?php echo $output;  ?>
 
     </div>
                

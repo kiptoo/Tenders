@@ -40,8 +40,14 @@
 
 $route['default_controller'] = "admin/admin";
 //$route['default_controller'] = "examples";
+//$route['admin'] = "admin/admin";
 $route['404_override'] = '';
-$route['admin'] = "admin/config";
+$route['config'] = "admin/config";
+$route['subscribers'] = "admin/subscribers";
+$route['login'] = "login";
+$route['form'] = "admin/login";
+$route['procurement'] = "admin/procurement";
+$route['tenders'] = "admin/tenders";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

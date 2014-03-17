@@ -10,20 +10,26 @@ class Examples extends CI_Controller {
 		$this->load->helper('url');
 
 		$this->load->library('grocery_CRUD');
-                
+                $this->config();
                 
 	}
 
 	public function _example_output($output = null)
 	{
+           /*  echo'<pre>';
+              
+             array_shift($output->js_files);
+              print_r($output);
+                echo '</pre>';*/
 		$this->load->view('admin/trial',$output);
 	}
 
 	public function offices()
 	{
 		$output = $this->grocery_crud->render();
-
+               
 		$this->_example_output($output);
+               
 	}
 
 	public function index()
@@ -128,7 +134,9 @@ class Examples extends CI_Controller {
 	}
 
 	public function film_management()
-	{
+	{   
+            
+            $this->config() ;
                
 		$crud = new grocery_CRUD();
 
