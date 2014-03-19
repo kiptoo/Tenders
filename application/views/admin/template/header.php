@@ -20,11 +20,11 @@ foreach($css_files as $file): ?>
  
     <script src="<?php echo $file; ?>"></script>
 <?php endforeach; ?>
- 
+
 
    <!-- BEGIN GLOBAL MANDATORY STYLES -->          
    <link href='<?php echo base_url('assets/plugins/font-awesome/css/font-awesome.min.css')?>' rel="stylesheet" type="text/css"/>
-  
+    <link href='<?php echo base_url('assets/css/themes/light.css')?>' rel="stylesheet" type="text/css"/>
    <link href='<?php echo base_url('assets/plugins/bootstrap/css/bootstrap.min.css')?>' rel="stylesheet" type="text/css"/>
    <link href='<?php echo base_url('assets/plugins/uniform/css/uniform.default.css')?>' rel="stylesheet" type="text/css"/>
    <!-- END GLOBAL MANDATORY STYLES -->
@@ -54,8 +54,8 @@ foreach($css_files as $file): ?>
    
    <!-- KENDO UI Styles -->
        
-    <link  href='<?php //echo base_url('KendoUI/styles/kendo.common.min.css')?>'  rel="stylesheet"/>
-    <link href='<?php// echo base_url('KendoUI/styles/kendo.metro.min.css')?>' rel="stylesheet"/>
+    <link  href='<?php echo base_url('KendoUI/styles/kendo.common.min.css')?>'  rel="stylesheet"/>
+    <link href='<?php //echo base_url('KendoUI/styles/kendo.metro.min.css')?>' rel="stylesheet"/>
 
     <script src='<?php //echo base_url('KendoUI/js/jquery.min.js')?>'></script>
     <script src='<?php //echo base_url('KendoUI/js/kendo.web.min.js')?>'></script>

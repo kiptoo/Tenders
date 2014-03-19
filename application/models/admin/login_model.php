@@ -9,6 +9,7 @@ class Login_model extends CI_Model {
 		$this->load->database();
                $this->load->library('session');
                $this->load->helper('url');
+               $this->load->library('encrypt');
 	}
         
      public function validate()
@@ -47,27 +48,35 @@ class Login_model extends CI_Model {
          }
     public function log_in($post_array)
     {
+        $this->load->library('encrypt');
         $username=$post_array['username'];
         $password=$post_array['password'];
         
     $this->db->select('user_id, username,password,salt')
                         ->where('username', $username);
-      $qry= $this->db->get('system_users');  
-      $salt=array('salt'=>$qry->row_array()['salt'],'passw'=>$qry->row_array()['password']);
-      
-      $post=$salt+$post_array;
-     $pass=  Functions::decrypt_password_callback($post); 
-     echo '<p>';
-    // print_r($post);
-     print_r( $pass);
-     echo '</p>';
-    // No results, we're done.
-    if ($qry->num_rows() !== 1)
+      $qry= $this->db->get('system_users'); 
+       if ($qry->num_rows() !== 1)
     {
         return FALSE;
     }
+    else{
+      $salt=array('salt'=>$qry->row_array()['salt'],'passw'=>$qry->row_array()['password']);
+      
+      $post=$salt+$post_array;
+   //  $pass=  Functions::decrypt_password_callback($post); 
+     echo '<p>';
+    // print_r($post);
+     print_r($post);
+     echo '</p>';
+    // No results, we're done.
+     //$encoded_password = sha1($post['password']);
+     //$decoded_password = $this->encrypt->decode($post['passw'], $post['salt']);
+     $decoded_password = Functions::decrypt_password_callback($post); 
+   
+     //echo'decoded password'. $decoded_password;
+   
 
-    if ($pass['password']== $qry->row('password'))
+    if ($decoded_password['passw']=== $post['password'])
     {
         $data = array(
             'user_id'       => $qry->row('user_id'),
@@ -82,6 +91,7 @@ class Login_model extends CI_Model {
     }
 
     return FALSE;
+    }
 }
 
    public function create_user($post_array) 

@@ -23,25 +23,57 @@ class Login  extends CI_Controller {
 
         $base = 'required|trim|xss_clean';
 
-        $this->form_validation->set_rules('username', 'username', $base.'|valid_email|max_length[50]')
-                    ->set_rules('password', 'Password', $base.'|max_length[10]');
+        $this->form_validation->set_rules('username', 'username', $base.'max_length[10]')
+                    ->set_rules('password', 'Password', $base.'max_length[10]');
 
-        if (!$this->form_validation->run())
+        if ($this->form_validation->run())
         {
-           
-                echo 'user now preparing to log in';
+            //$log = $this->login_model->create();
+            //echo $log;
+               echo 'user now preparing to log in';
                 $this->login();
              
         }
 
-        $this->load->view('welcome_message');
+        
+    }
+    public function create() {
+        $log = $this->login_model->create();
+        if($log === TRUE)
+          {
+            $result=array();
+            $errors=array();
+            $data=(object)array(
+				'data' => $result,
+				'errors' => $errors,
+				//'output'  => $output
+		);
+                //echo 'user created created';
+                $this->load->view('login',$data);
+                //redirect();
+               // $this->load->view('admin');
+              // new  Admin ();
+           }
+          else
+              {
+              $result=array();
+            $errors=array();
+                $data=(object)array(
+				'data' => $result,
+				'css_files' => $errors,
+				//'output'	=> $output
+		);
+             $this->load->view('login',$data);
+              }    
     }
     public function login() {
         $log = $this->login_model->validate();
        echo $log;
             if($log === TRUE)
           {
-                echo 'is logged in';
+               // echo 'is logged in';
+                  $data=array();
+                $this->load->view('welcome_message');
                 //redirect();
                // $this->load->view('admin');
               // new  Admin ();

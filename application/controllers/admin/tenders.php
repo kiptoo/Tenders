@@ -11,7 +11,7 @@ class Tenders extends CI_Controller {
               $this->load->helper('directory');
                
 		$this->load->library('grocery_CRUD');
-                $this->config() ;
+               $this->config() ;
           
 	}
            public function _example_output($output = null)
@@ -46,14 +46,7 @@ class Tenders extends CI_Controller {
                  
 		       $crud->set_theme('datatables');
                        $crud->set_table('type');
-                       $crud->columns('user_id','first_name','last_name','phone','idno','email','active');
-                       $crud->unset_columns('active','createdate');
-			$crud->required_fields('user_id','first_name','last_name','phone','idno','email','active');
-                        $crud->fields('first_name','last_name','phone','idno','email','active');
-			//$crud->set_subject('Office');
-			//$crud->required_fields('city');
-			//$crud->columns('city','country','phone','addressLine1','postalCode');
-
+                       
 			$output = $crud->render();
                         
 

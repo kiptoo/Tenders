@@ -42,6 +42,7 @@ class Functions extends CI_Controller{
         if (!empty($post_array['password'])) {
                 $salt = Functions::_create_salt();
                 $post_salt = array('salt' => $salt);
+                echo $salt; 
                 $post_array['password'] = $this->encrypt->encode($post_array['password'], $salt);
 
                 // echo 'pass='.$this->encrypt->decode($post_array['password'], $salt);

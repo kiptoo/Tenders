@@ -11,7 +11,7 @@ class Admin extends CI_Controller {
               $this->load->helper('directory');
                
 		$this->load->library('grocery_CRUD');
-                $this->config() ;
+               $this->config() ;
           
 	}
            public function _example_output($output = null)
@@ -19,8 +19,8 @@ class Admin extends CI_Controller {
    
           
             $this->load->view('admin/template/header',$output);
-	       $this->load->view('admin/index',$output);
-              $this->load->view('admin/template/footer',$output );
+	       $this->load->view('admin/admin',$output);
+             $this->load->view('admin/template/footer',$output );
                   
 	}
 	public function index()
@@ -31,7 +31,8 @@ class Admin extends CI_Controller {
 		$crud->set_table('user_meta');
          
 			$output = $crud->render();
-                        
+                         
+         
 
 			$this->_example_output($output);
            
@@ -73,7 +74,7 @@ class Admin extends CI_Controller {
 		
 			$crud->set_theme('datatables');
 			$crud->set_table('system_users');
-                        $crud->where('enabled','1');
+                       // $crud->where('enabled','1');
                   $crud->set_relation_n_n('Roles', 'user_role', 'role','user_id', 'role_id', 'name');
                       $crud->set_relation('user_id','user_meta','first_name');
                       $crud->set_relation('proc_entity','procurement','name');

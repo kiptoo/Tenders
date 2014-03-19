@@ -38,16 +38,18 @@
 |
 */
 
-$route['default_controller'] = "admin/admin";
-//$route['default_controller'] = "examples";
+//$route['default_controller'] = "admin/admin";
+$route['default_controller'] = "login";
 //$route['admin'] = "admin/admin";
 $route['404_override'] = '';
 $route['config'] = "admin/config";
 $route['subscribers'] = "admin/subscribers";
 $route['login'] = "login";
 $route['form'] = "admin/login";
+$route['reg'] = "admin/login/create";
 $route['procurement'] = "admin/procurement";
 $route['tenders'] = "admin/tenders";
+$route['regions'] = "admin/regions";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

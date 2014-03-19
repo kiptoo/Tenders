@@ -16,9 +16,9 @@ class Login extends CI_Controller {
 	}
        public function index()
 	{ 
-            //  $this->load->view('admin/template/header1');
-        $this->load->view('admin/log');  
-         //  $this->load->view('admin/template/header1');
+          //  $this->load->view('admin/template/header1');
+        $this->load->view('login');  
+      //   $this->load->view('admin/template/footer');
         /*$this->load->library('form_validation');
         $this->load->library('simple_auth');
         $this->load->helper(array('form', 'url'));

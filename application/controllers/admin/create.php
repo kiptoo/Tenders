@@ -36,7 +36,7 @@ class Create extends CI_Controller {
             if($users===TRUE)
                 {
                 echo 'user created';
-                $this->login();
+               // $this->login();
                }
                else{
                echo 'user not created';
