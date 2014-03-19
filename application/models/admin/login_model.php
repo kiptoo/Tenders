@@ -64,10 +64,10 @@ class Login_model extends CI_Model {
       
       $post=$salt+$post_array;
    //  $pass=  Functions::decrypt_password_callback($post); 
-     echo '<p>';
-    // print_r($post);
+    /* echo '<p>';
      print_r($post);
-     echo '</p>';
+     print_r($post);
+     echo '</p>';*/
     // No results, we're done.
      //$encoded_password = sha1($post['password']);
      //$decoded_password = $this->encrypt->decode($post['passw'], $post['salt']);

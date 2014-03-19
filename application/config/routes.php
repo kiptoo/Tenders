@@ -40,7 +40,9 @@
 
 //$route['default_controller'] = "admin/admin";
 $route['default_controller'] = "login";
-//$route['admin'] = "admin/admin";
+
+$route['profile'] = "admin/profile";
+$route['admin'] = "admin/admin";
 $route['404_override'] = '';
 $route['config'] = "admin/config";
 $route['subscribers'] = "admin/subscribers";

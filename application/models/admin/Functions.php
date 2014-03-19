@@ -20,17 +20,17 @@ class Functions extends CI_Controller{
 {
     $this->load->library('encrypt');
     $salt = $post_array['salt']; 
-    echo '<pre>';
+  /*  echo '<pre>';
      print_r($post_array);
     
      //print_r($post_array);
-     echo '</pre>';
+     echo '</pre>';*/
      $post_array['passw'] = $this->encrypt->decode($post_array['passw'], $salt );
-  echo '<pre>';
+ /* echo '<pre>';
      print_r($post_array);
     
      //print_r($post_array);
-     echo '</pre>';
+     echo '</pre>';*/
       return $post_array;
 }
  function encrypt_password_callback($post_array) {
@@ -42,7 +42,7 @@ class Functions extends CI_Controller{
         if (!empty($post_array['password'])) {
                 $salt = Functions::_create_salt();
                 $post_salt = array('salt' => $salt);
-                echo $salt; 
+              //  echo $salt; 
                 $post_array['password'] = $this->encrypt->encode($post_array['password'], $salt);
 
                 // echo 'pass='.$this->encrypt->decode($post_array['password'], $salt);

@@ -88,14 +88,14 @@ foreach($css_files as $file): ?>
         <i class="icon-angle-down"></i>
         </a>
         <ul class="dropdown-menu">
-          <li><a href="extra_profile.html"><i class="icon-user"></i> My Profile</a>
+          <li><a href='<?php echo site_url('admin/profile')?>'><i class="icon-user"></i> My Profile</a>
          
           <li class="divider"></li>
           <li><a href="javascript:;" id="trigger_fullscreen"><i class="icon-move"></i> Full Screen</a>
           </li>
           <li><a href="extra_lock.html"><i class="icon-lock"></i> Lock Screen</a>
           </li>
-          <li><a href="login.html"><i class="icon-key"></i> Log Out</a>
+          <li><a href='<?php echo site_url('login')?>'><i class="icon-key"></i> Log Out</a>
           </li>
         </ul>
       </li>

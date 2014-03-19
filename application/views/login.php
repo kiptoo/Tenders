@@ -129,10 +129,31 @@
 			<h3 >Sign Up</h3>
 			<p>Enter your personal details below:</p>
 			<div class="form-group">
-				<label class="control-label visible-ie8 visible-ie9">Full Name</label>
+				<label class="control-label visible-ie8 visible-ie9">First Name</label>
 				<div class="input-icon">
 					<i class="icon-font"></i>
-					<input class="form-control placeholder-no-fix" type="text" placeholder="Full Name" name="fullname"/>
+					<input class="form-control placeholder-no-fix" type="text" placeholder="First Name" name="first_name"/>
+				</div>
+			</div>
+                        <div class="form-group">
+				<label class="control-label visible-ie8 visible-ie9">Last Name</label>
+				<div class="input-icon">
+					<i class="icon-font"></i>
+					<input class="form-control placeholder-no-fix" type="text" placeholder="Last Name" name="last_name"/>
+				</div>
+			</div>
+                        <div class="form-group">
+				<label class="control-label visible-ie8 visible-ie9">Phone</label>
+				<div class="input-icon">
+					<i class="icon-font"></i>
+					<input class="form-control placeholder-no-fix" type="text" placeholder="Phone" name="phone"/>
+				</div>
+			</div>
+                             <div class="form-group">
+				<label class="control-label visible-ie8 visible-ie9">Id No</label>
+				<div class="input-icon">
+					<i class="icon-font"></i>
+					<input class="form-control placeholder-no-fix" type="text" placeholder="Id No" name="id"/>
 				</div>
 			</div>
 			<div class="form-group">
@@ -143,20 +164,7 @@
 					<input class="form-control placeholder-no-fix" type="text" placeholder="Email" name="email"/>
 				</div>
 			</div>
-			<div class="form-group">
-				<label class="control-label visible-ie8 visible-ie9">Address</label>
-				<div class="input-icon">
-					<i class="icon-ok"></i>
-					<input class="form-control placeholder-no-fix" type="text" placeholder="Address" name="address"/>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label visible-ie8 visible-ie9">City/Town</label>
-				<div class="input-icon">
-					<i class="icon-location-arrow"></i>
-					<input class="form-control placeholder-no-fix" type="text" placeholder="City/Town" name="city"/>
-				</div>
-			</div>
+			
 	
 			<p>Enter your account details below:</p>
 			<div class="form-group">

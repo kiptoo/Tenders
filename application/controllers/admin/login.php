@@ -30,7 +30,7 @@ class Login  extends CI_Controller {
         {
             //$log = $this->login_model->create();
             //echo $log;
-               echo 'user now preparing to log in';
+              // echo 'user now preparing to log in';
                 $this->login();
              
         }
@@ -68,19 +68,21 @@ class Login  extends CI_Controller {
     }
     public function login() {
         $log = $this->login_model->validate();
-       echo $log;
+    //   echo $log;
             if($log === TRUE)
           {
                // echo 'is logged in';
                   $data=array();
-                $this->load->view('welcome_message');
-                //redirect();
+               // $this->load->view('admin/admin');
+                
+                redirect('admin/admin');
                // $this->load->view('admin');
               // new  Admin ();
            }
           else
               {
-              echo 'is Not logged in';
+               $data=array();
+             $this->load->view('login',$data);
               } 
     }
   

@@ -9,7 +9,7 @@ class Admin extends CI_Controller {
 		$this->load->database();
 		$this->load->helper('url');
               $this->load->helper('directory');
-               
+               $this->load->library('session');
 		$this->load->library('grocery_CRUD');
                $this->config() ;
           
