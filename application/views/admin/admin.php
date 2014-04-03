@@ -22,7 +22,7 @@
     </div>
     <!-- END PAGE HEADER-->
     <!-- CONTENT BODY GOES HERE >>>> -->
-         <div class="column sortable">
+         <div id="output" class="column sortable">
              
          <div class="portlet box green">
                   <div class="portlet-title">
@@ -40,7 +40,7 @@
                       <div id="example" class="k-content"></div>
             
                   </div>-->
-                     <div>
+                    <div >
         <?php echo $output;  ?>
 
     </div>

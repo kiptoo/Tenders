@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-//include(APPPATH.'models/admin/Functions.php');
+include(APPPATH.'controllers/admin//classes/rbac.php');
 class Login  extends CI_Controller {
 
 	public function __construct()
@@ -9,10 +9,10 @@ class Login  extends CI_Controller {
 		$this->load->database();
 		$this->load->helper('url');
               $this->load->helper('directory');
-               
+                $this->load->library('session');
 		$this->load->library('grocery_CRUD');
               $this->load->model('admin/login_model');
-          
+               $this->load->model('admin/rbac_model');
 	}
        public function index()
 	{ 
@@ -66,6 +66,26 @@ class Login  extends CI_Controller {
              $this->load->view('login',$data);
               }    
     }
+        public function update_meta() {
+         $log = $this->login_model->update_meta();
+          if($log === TRUE)
+          {
+             echo'update succesfull' ;
+          }
+        else {
+              echo 'update fail';
+        }
+        }
+         public function update_login() {
+         $log = $this->login_model->update_login();
+          if($log === TRUE)
+          {
+             echo'update succesfull' ;
+          }
+        else {
+              echo 'update fail';
+        }
+        }
     public function login() {
         $log = $this->login_model->validate();
     //   echo $log;
@@ -74,18 +94,31 @@ class Login  extends CI_Controller {
                // echo 'is logged in';
                   $data=array();
                // $this->load->view('admin/admin');
-                
-                redirect('admin/admin');
+           /*     echo '<pre>';
+           Rbac::getRole_privileges();
+           echo '</pre>'; 
+              echo '<pre>';
+           print_r($this->session->userdata('logged_in'));
+           echo '</pre>'; 
+             echo '</pre>'; 
+              echo '<pre>';
+           print_r($this->session->userdata('privileges'));
+           echo '</pre>'; */
+               redirect('admin/admin');
                // $this->load->view('admin');
               // new  Admin ();
            }
           else
-              {
-               $data=array();
-             $this->load->view('login',$data);
+             {
+               //$data=array();
+             $this->load->view('login');
               } 
     }
-  
+  function logout()
+{
+    $this->session->sess_destroy();
+    redirect('login');
+}
 
 
 }

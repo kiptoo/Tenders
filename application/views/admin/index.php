@@ -40,7 +40,7 @@
                       <div id="example" class="k-content"></div>
             
                   </div>-->
-                     <div>
+                     <div id="output">
         <?php echo $output;  ?>
 
     </div>

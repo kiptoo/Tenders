@@ -43,7 +43,7 @@
 <body class="login">
 	<!-- BEGIN LOGO -->
 	<div class="logo">
-		<img src='<?php echo base_url('assets/img/logo-big.png')?>' alt="" /> 
+		<!--<img src='<?php// echo base_url('assets/img/logo-big.png')?>' alt="" /> -->
 	</div>
 	<!-- END LOGO -->
 	<!-- BEGIN LOGIN -->
@@ -51,8 +51,10 @@
 		<!-- BEGIN LOGIN FORM -->
              <?php
              $attributes = array('class' => 'login-form', 'id' => 'myform');
-
-                echo form_open('form', $attributes); ?>
+             
+echo validation_errors(); 
+   
+             echo form_open('form', $attributes); ?>
                 
                        
 			<h3 class="form-title">Login to your account</h3>

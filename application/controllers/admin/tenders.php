@@ -9,19 +9,24 @@ class Tenders extends CI_Controller {
 		$this->load->database();
 		$this->load->helper('url');
               $this->load->helper('directory');
-               
+                 $this->load->library('session');
 		$this->load->library('grocery_CRUD');
-               $this->config() ;
+              // $this->config() ;
           
 	}
            public function _example_output($output = null)
 	{
-   
+        if($this->session->userdata('logged_in'))
+       {
           
             $this->load->view('admin/template/header',$output);
 	       $this->load->view('admin/index',$output);
-              $this->load->view('admin/template/footer',$output );
+             $this->load->view('admin/template/footer',$output );
                   
+	}
+            else {
+                  $this->load->view('login');
+            }
 	}
 	public function index()
 	{
@@ -29,8 +34,20 @@ class Tenders extends CI_Controller {
                 $crud = new grocery_CRUD();
                 $crud->set_theme('datatables');
 		$crud->set_table('tenders');
-         
-			$output = $crud->render();
+          // $crud->set_relation_n_n('Files', 'tender_files', 'files','tender_id', 'file_id', 'file_url');
+           $crud->set_relation('region','region','reg_name');
+           $crud->set_relation('client','procurement','proc_name');
+           $crud->set_relation('type','type','type_name');
+           $crud->set_relation('category','category','cat_name');
+        
+          // $crud->set_relation_n_n('Roles', 'user_role', 'role','user_id', 'role_id', 'name');
+          // $crud->set_relation_n_n('Creator', 'tender_user', 'system_users','tender_id', 'user_id', 'user_id');
+           // $crud->set_relation('file_url','files','file_url');
+       $crud->unset_fields('suspended','created','expired');
+          // $crud->unset_columns('creator','suspended','created','expired','file_url');
+           $crud->set_field_upload('file_url','assets/uploads/files');
+          // $crud->callback_before_insert(array($this,'creator'));
+	$output = $crud->render();
                         
 
 			$this->_example_output($output);
@@ -94,48 +111,15 @@ class Tenders extends CI_Controller {
 		$this->config->set_item('grocery_crud_dialog_forms',true);
 		$this->config->set_item('grocery_crud_default_per_page',10); 
         }
-        function encrypt_password_callback($post_array) {
-    $this->load->library('encrypt');
  
-    //Encrypt password only if is not empty. Else don't change the password to an empty field
-    if(!empty($post_array['password']))
-    {
-        $salt = $this->_create_salt(); 
-         $post_salt =array('salt'=>$salt); 
-        $post_array['password'] = $this->encrypt->encode($post_array['password'], $salt );
-       $output = $post_array+$post_salt;
-      /*  echo '<pre>';
-        print_r($output);
-        echo '</pre>';*/
-         return $this->db->insert('system_users',$output);
-    }
-    else
-    {
-        unset($post_array['password']);
-    }
- 
-  return $post_array;
+        public function creator($post_array)
+           {
+            $id= $id=$this->session->userdata('logged_in')['data']->user_id;
+         $post_array['creator'] =$id;
+          $output = $post_array;
+          print_r($output);
+           return $output;   
+          }
 }
-public function decrypt_password_callback($post_array)
-{
-    $salt = $post_array['salt']; 
-    
-     $post_array['password'] = $this->encrypt->decode($post_array['password'], $salt );
-
-      return $post_array;
-}
-    
-  public function delete_user($primary_key)
-{
-    return $this->db->update('system_users',array('enabled' => '0'),array('user_id' => $primary_key));
-}
- public function _create_salt()
-{
-    $this->load->helper('string');
-    return sha1(random_string('alnum', 32));
-}  
-
-}
-
 /* End of file welcome.php */
 /* Location: ./application/controllers/welcome.php */

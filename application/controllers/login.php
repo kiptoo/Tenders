@@ -16,33 +16,19 @@ class Login extends CI_Controller {
 	}
        public function index()
 	{ 
-           $this->session->sess_destroy();
-          //  $this->load->view('admin/template/header1');
+         
+          
         $this->load->view('login');  
-      //   $this->load->view('admin/template/footer');
-        /*$this->load->library('form_validation');
-        $this->load->library('simple_auth');
-        $this->load->helper(array('form', 'url'));
-
-        $base = 'required|trim|xss_clean';
-
-        $this->form_validation->set_rules('username', 'Username', $base.'|max_length[40]')
-                    ->set_rules('email', 'Email', $base.'|valid_email|max_length[50]')
-                    ->set_rules('password', 'Password', $base.'|matches[password_conf]')
-                    ->set_rules('password_conf', 'Password Confirmation', $base.'|min_length[5]');
-
-        if ($this->form_validation->run())
-        {
-            $this->simple_auth->create_user(
-                                    $this->input->post('username'),
-                                    $this->input->post('password'),
-                                    $this->input->post('email')
-                                );
-
-            $this->session->set_flashdata('registration_message', 'Thanks for registering.  Log in now!');
-            redirect();
-        }
-
-        $this->load->view('register');*/
+       /* if($this->session->userdata('logged_in'))
+            {
+              $session_data = $this->session->userdata('logged_in');
+              $data['username'] = $session_data['username'];
+              //$this->load->view('admin/admin', $data);
+            }
+            else
+            {
+              //If no session, redirect to login page
+              redirect('login', 'refresh');
+            }*/
         }    
 }

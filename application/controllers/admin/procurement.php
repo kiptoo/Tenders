@@ -9,7 +9,7 @@ class Procurement extends CI_Controller {
 		$this->load->database();
 		$this->load->helper('url');
               $this->load->helper('directory');
-               
+                 $this->load->library('session');
 		$this->load->library('grocery_CRUD');
                 $this->config() ;
           
@@ -17,11 +17,17 @@ class Procurement extends CI_Controller {
            public function _example_output($output = null)
 	{
    
+                          if($this->session->userdata('logged_in'))
+       {
           
             $this->load->view('admin/template/header',$output);
 	       $this->load->view('admin/index',$output);
-              $this->load->view('admin/template/footer',$output );
+             $this->load->view('admin/template/footer',$output );
                   
+	}
+            else {
+                  $this->load->view('login');
+            }
 	}
 	public function index()
 	{

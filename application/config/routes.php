@@ -38,8 +38,8 @@
 |
 */
 
-//$route['default_controller'] = "admin/admin";
-$route['default_controller'] = "login";
+$route['default_controller'] = "admin/admin";
+//$route['default_controller'] = "login";
 
 $route['profile'] = "admin/profile";
 $route['admin'] = "admin/admin";
@@ -49,6 +49,8 @@ $route['subscribers'] = "admin/subscribers";
 $route['login'] = "login";
 $route['form'] = "admin/login";
 $route['reg'] = "admin/login/create";
+$route['update_reg'] = "admin/login/update_meta";
+$route['update_login'] = "admin/login/update_login";
 $route['procurement'] = "admin/procurement";
 $route['tenders'] = "admin/tenders";
 $route['regions'] = "admin/regions";

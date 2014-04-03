@@ -10,7 +10,12 @@
 |
 */
 
-
+$hook['post_controller_constructor'] = array(
+    'class' => 'ezRbacHook',
+    'function' => 'AccessCheck',
+    'filename' => 'ezRbacHook.php',
+    'filepath' => 'third_party/ezRbac'
+);
 
 /* End of file hooks.php */
 /* Location: ./application/config/hooks.php */

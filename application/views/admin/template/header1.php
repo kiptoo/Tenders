@@ -11,23 +11,14 @@
    <meta content="" name="description" />
    <meta content="" name="author" />
    <meta name="MobileOptimized" content="320">
-   <?php 
-foreach($css_files as $file): ?>
-    <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
- 
-<?php endforeach; ?>
-    <?php foreach($js_files as $file): ?>
- 
-    <script src="<?php echo $file; ?>"></script>
-<?php endforeach; ?>
-
-
+  
    <!-- BEGIN GLOBAL MANDATORY STYLES -->          
    <link href='<?php echo base_url('assets/plugins/font-awesome/css/font-awesome.min.css')?>' rel="stylesheet" type="text/css"/>
     <link href='<?php echo base_url('assets/css/themes/light.css')?>' rel="stylesheet" type="text/css"/>
    <link href='<?php echo base_url('assets/plugins/bootstrap/css/bootstrap.min.css')?>' rel="stylesheet" type="text/css"/>
    <link href='<?php echo base_url('assets/plugins/uniform/css/uniform.default.css')?>' rel="stylesheet" type="text/css"/>
    <!-- END GLOBAL MANDATORY STYLES -->
+ <link href='<?php echo base_url('assets/plugins/bootstrap-fileupload/bootstrap-fileupload.css')?>' rel="stylesheet" type="text/css"/>
 
    <!-- BEGIN PAGE LEVEL PLUGIN STYLES --> 
    <link href='<?php echo base_url('assets/plugins/gritter/css/jquery.gritter.css')?>' rel="stylesheet" type="text/css"/>
@@ -47,8 +38,8 @@ foreach($css_files as $file): ?>
    <link href='<?php echo base_url('assets/css/plugins.css')?>' rel="stylesheet" type="text/css"/>
    <link href='<?php echo base_url('assets/css/pages/tasks.css')?>' rel="stylesheet" type="text/css"/>
    <link href='<?php echo base_url('assets/css/themes/default.css')?>' rel="stylesheet" type="text/css" id="style_color"/>
-   <link href='<?php echo base_url('assets/css/pages/profile.css')?>' rel="stylesheet" type="text/css"/>
    <link href='<?php echo base_url('assets/css/custom.css')?>' rel="stylesheet" type="text/css"/>
+     <link href='<?php echo base_url('assets/css/pages/profile.css')?>' rel="stylesheet" type="text/css"/>
    <!-- END THEME STYLES -->
  
    <link rel="shortcut icon" href='<?php echo base_url('favicon.ico')?>' />
@@ -70,7 +61,7 @@ foreach($css_files as $file): ?>
   <div class="header-inner">
     <!-- BEGIN LOGO -->  
     <a class="navbar-brand" href="index.html">
-        <img src='<?php echo base_url('assets/img/logo.png')?>' class="img-responsive" />
+        <img src='<?php //echo base_url('assets/img/logo.png')?>' class="img-responsive" />
     </a>
     <!-- END LOGO -->
     <!-- BEGIN RESPONSIVE MENU TOGGLER --> 
@@ -84,8 +75,8 @@ foreach($css_files as $file): ?>
       <!-- BEGIN USER LOGIN DROPDOWN -->
       <li class="dropdown user">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-        <img alt="" src='<?php echo base_url('assets/img/avatar1_small.jpg')?>'/>
-        <span class="username">Bob Nilson</span>
+        <img alt="" src='<?php echo    base_url('assets/uploads/photos/'.$this->session->userdata('logged_in')['meta']->file_url);?>'/>
+        <span class="username"><?php echo $this->session->userdata('logged_in')['data']->username ?></span>
         <i class="icon-angle-down"></i>
         </a>
         <ul class="dropdown-menu">
@@ -94,9 +85,8 @@ foreach($css_files as $file): ?>
           <li class="divider"></li>
           <li><a href="javascript:;" id="trigger_fullscreen"><i class="icon-move"></i> Full Screen</a>
           </li>
-          <li><a href="extra_lock.html"><i class="icon-lock"></i> Lock Screen</a>
-          </li>
-          <li><a href='<?php echo site_url('login')?>'><i class="icon-key"></i> Log Out</a>
+          
+          <li><a href='<?php echo site_url('admin/login/logout')?>'><i class="icon-key"></i> Log Out</a>
           </li>
         </ul>
       </li>
@@ -132,7 +122,7 @@ foreach($css_files as $file): ?>
                <!-- END RESPONSIVE QUICK SEARCH FORM -->
             </li>
               <li class="start active ">
-               <a href="index.html">
+               <a href='<?php echo site_url('admin/admin')?>'>
                <i class="icon-home"></i> 
                <span class="title">Dashboard</span>
                <span class="selected"></span>
@@ -222,7 +212,7 @@ foreach($css_files as $file): ?>
                </a>
             </li>
                        <li>
-               <a href='<?php echo site_url('admin/notification')?>'>
+               <a href='<?php echo site_url('admin/notification/subscriber_management')?>'>
                <i class="icon-bell"></i> 
                <span class="title">Notifications</span>
                <span class="selected"></span>

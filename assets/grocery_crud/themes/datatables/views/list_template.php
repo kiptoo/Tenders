@@ -27,6 +27,7 @@
 	$this->set_js($this->default_javascript_path.'/jquery_plugins/jquery.fancybox-1.3.4.js');
 	$this->set_js($this->default_javascript_path.'/jquery_plugins/jquery.easing-1.3.pack.js');
 ?>
+
 <script type='text/javascript'>
 	var base_url = '<?php echo base_url();?>';
 	var subject = '<?php echo $subject?>';
