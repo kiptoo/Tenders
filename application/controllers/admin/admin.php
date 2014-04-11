@@ -112,6 +112,7 @@ class Admin extends CI_Controller {
                       $crud->required_fields('username','password');
                     $crud->change_field_type('password', 'password');
 		   $crud->callback_before_insert(array($this,'encrypt_password_callback'));
+                  // $crud->callback_before_insert(array($this,'insert_callback'));
                    $crud->callback_before_delete(array($this,'delete_user'));
 			$output = $crud->render();
                         
@@ -122,6 +123,15 @@ class Admin extends CI_Controller {
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
 	}
+             function insert_callback($post_array) {
+
+           // print_r($post_array);
+           //  $fp = fopen("receivelog.txt","a");
+             file_put_contents('receive.txt', print_r($post_array, true));
+    /* echo 'true';
+     fputs($fp,"$post_array\n");
+     fclose($fp);*/
+        }
           public function role_management()
 	{
 		//$this->config() ; 

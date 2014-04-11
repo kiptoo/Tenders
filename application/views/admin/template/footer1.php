@@ -22,7 +22,7 @@
   <script src='<?php echo base_url('assets/plugins/jquery-1.10.2.min.js')?>'></script>
   <script src='<?php echo base_url('assets/plugins/jquery-migrate-1.2.1.min.js')?>'></script>
 <!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
-  <script src='<?php echo base_url('assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js')?>'></script>
+  <script src='<?php// echo base_url('assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js')?>'></script>
   <script src='<?php echo base_url('assets/plugins/bootstrap/js/bootstrap.min.js')?>'></script>
   <script src='<?php echo base_url('assets/plugins/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js')?>'></script>
   <script src='<?php echo base_url('assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js')?>'></script> 
@@ -34,20 +34,46 @@
 <script src='<?php echo base_url('assets/plugins/jquery-validation/dist/jquery.validate.min.js')?>'></script>
 <script src='<?php echo base_url('assets/plugins/select2/select2.min.js')?>'></script>
 <script src='<?php echo base_url('assets/plugins/bootstrap-fileupload/bootstrap-fileupload.js')?>'></script>
-
+ <script src='<?php echo base_url('assets/plugins/gmaps/gmaps.js')?>'></script>
 <!-- IMPORTANT! fullcalendar depends on jquery-ui-1.10.3.custom.min.js for drag & drop support -->
 
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src='<?php echo base_url('assets/scripts/app.js')?>'></script>
-<script src='<?php// echo base_url('assets/scripts/login.js')?>'></script> 
+<script src='<?php echo base_url('assets/scripts/maps-google.js')?>'></script> 
 <!-- END PAGE LEVEL SCRIPTS -->  
 <script>
   jQuery(document).ready(function() {    
      App.init(); // initlayout and core plugins     
-    //Login.init();
+    MapsGoogle.init();
   });
 </script>
-  
+  <style>
+      #map_canvas {
+        width: 100%;
+        height: 100%;
+      }
+       
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script>
+      function initialize() {
+        var map_canvas = document.getElementById('map_canvas');
+        var myLatlng = new google.maps.LatLng(<?php  echo $data->Entity['longitude'].",".$data->Entity['latitude'];?>);
+        //var myLatlng = new google.maps.LatLng(-1.273483, 36.808258);
+        var map_options = {
+          center:myLatlng,
+          zoom: 8
+         // mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(map_canvas, map_options);
+          var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Hello World!'
+  });
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 <script>
   	function handleLogin () 
         {

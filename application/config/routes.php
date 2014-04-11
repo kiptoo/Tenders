@@ -38,11 +38,12 @@
 |
 */
 
-$route['default_controller'] = "admin/admin";
+$route['default_controller'] = "front/front";
 //$route['default_controller'] = "login";
 
 $route['profile'] = "admin/profile";
 $route['admin'] = "admin/admin";
+$route['entity'] = "admin/entity";
 $route['404_override'] = '';
 $route['config'] = "admin/config";
 $route['subscribers'] = "admin/subscribers";

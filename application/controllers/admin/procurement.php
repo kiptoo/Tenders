@@ -88,7 +88,7 @@ class Procurement extends CI_Controller {
                  
 		       $crud->set_theme('datatables');
                         $crud->set_table('location');
-                     $crud->set_relation('Region','region','name');  
+                     $crud->set_relation('Region','region','reg_name');  
 			//$crud->set_subject('Office');
 			//$crud->required_fields('city');
 			//$crud->columns('city','country','phone','addressLine1','postalCode');

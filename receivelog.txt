@@ -1,1 +1,25 @@
-+36203105366 sheila williams 2443546
+Array
+(
+    [user_id] => 3
+    [Region] => Array
+        (
+            [0] => 4
+            [1] => 2
+            [2] => 1
+            [3] => 3
+        )
+
+    [Category] => Array
+        (
+            [0] => 3
+            [1] => 2
+        )
+
+    [Type] => Array
+        (
+            [0] => 2
+        )
+
+    [active] => 1
+    [is_ajax] => true
+)

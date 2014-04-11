@@ -11,6 +11,7 @@ class Subscribers extends CI_Controller {
               $this->load->helper('directory');
                $this->load->library('session');
 		$this->load->library('grocery_CRUD');
+                 $this->load->model('admin/subscriber_model');
                 $this->config() ;
           
 	}
@@ -43,22 +44,29 @@ class Subscribers extends CI_Controller {
                  
 		       $crud->set_theme('datatables');
                        $crud->set_table('subscriber');
-          $crud->set_relation('user_id','user_meta','first_name');            
+                   
           $crud->set_relation_n_n('Category', 'subscriber_cat', 'category', 'user_id', 'cat_id', 'cat_name','priority');
-         // $crud->set_relation_n_n('Region', 'subscriber_region', 'region', 'user_id', 'reg_id', 'reg_name','priority');       
-       //    $crud->set_relation_n_n('Type', 'subscriber_type', 'type', 'user_id', 'type_id', 'type_name','priority');       
-          
-           // $crud->columns('user_id','Region','Category','Type','active','created');
-          $crud->fields('user_id','Category','active');
-           //$crud->fields('user_id','Region','Category','Type','active');
-          
+          $crud->set_relation_n_n('Region', 'subscriber_region', 'region', 'user_id', 'reg_id', 'reg_name','priority');       
+          $crud->set_relation_n_n('Type', 'subscriber_type', 'type', 'user_id', 'type_id', 'type_name','priority');       
+            $crud->set_relation('user_id','user_meta','first_name'); 
+           $crud->columns('user_id','Region','Category','Type','active','created');
+          //$crud->fields('user_id','Category','active');
+           $crud->fields('user_id','Region','Category','Type','active');
+           $crud->callback_insert(array($this,'insert_callback'));
 			$output = $crud->render();
                         
 
 			$this->_example_output($output);
      
  }
-      
+        function insert_callback($post_array) {
+              
+           file_put_contents('receivelog.txt', print_r($post_array, true));
+    $batch= $this->subscriber_model->subscribe($post_array);
+         
+      file_put_contents('receive.txt', print_r( $batch, true));
+        }
+
         
           public function config()
        {
