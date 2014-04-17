@@ -10,10 +10,8 @@ class Front extends CI_Controller {
 		$this->load->helper('url');
               $this->load->helper('directory');
                $this->load->library('session');
-		$this->load->library('grocery_CRUD');
-                $this->load->library('javascript');
-                $this->load->library('javascript/jquery');
-                   $this->load->model('admin/rbac_model');
+	      $this->load->helper('form');
+                   $this->load->model('admin/tenders_model');
              
           
 	}
@@ -25,11 +23,18 @@ class Front extends CI_Controller {
 	{
           $output= (object)array('output' => '' , 'js_files' => array() , 'css_files' => array());
             
-            $this->load->view('frontend/template/header',$output);
-	       $this->load->view('frontend/index',$output);
-             $this->load->view('frontend/template/footer',$output);
+           $this->load->view('frontend/template/header',$output);
+	       $this->load->view('frontend/metro',$output);
+           $this->load->view('frontend/template/footer',$output);
     
      }
+     public function search()
+             {
+         redirect('front/results');
+        /* $profile = $this->tenders_model->tenders();
+         echo $profile;
+         return $profile;*/
+             }
      
      
 

@@ -19,10 +19,10 @@
 
 <!--    KENDO UI javascript files-->
 
-  <script src='<?php echo base_url('assets/plugins/jquery-1.10.2.min.js')?>'></script>
-  <script src='<?php echo base_url('assets/plugins/jquery-migrate-1.2.1.min.js')?>'></script>
+  <script src='<?php// echo base_url('assets/plugins/jquery-1.10.2.min.js')?>'></script>
+  <script src='<?php //echo base_url('assets/plugins/jquery-migrate-1.2.1.min.js')?>'></script>
 <!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
-  <script src='<?php// echo base_url('assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js')?>'></script>
+  <script src='<?php echo base_url('assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js')?>'></script>
   <script src='<?php echo base_url('assets/plugins/bootstrap/js/bootstrap.min.js')?>'></script>
   <script src='<?php echo base_url('assets/plugins/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js')?>'></script>
   <script src='<?php echo base_url('assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js')?>'></script> 

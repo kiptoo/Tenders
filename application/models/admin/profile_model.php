@@ -24,7 +24,7 @@ class profile_model extends CI_Model {
                    ->  where('system_users.user_id', $id)
                         ->from('system_users')
                       
-                       ->join('tender_user', 'system_users.user_id =tender_user.user_id')
+                       ->join('tender_user', 'system_users.user_id =tender_user.user')
                        ->join('tenders','tenders.tender_id =tender_user.tender_id')
                       ->join('category', 'tenders.category =category.cat_id','left')
                      ->join('type', 'tenders.type=type.type_id','left')

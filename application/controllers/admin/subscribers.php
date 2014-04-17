@@ -61,10 +61,10 @@ class Subscribers extends CI_Controller {
  }
         function insert_callback($post_array) {
               
-           file_put_contents('receivelog.txt', print_r($post_array, true));
+          // file_put_contents('receivelog.txt', print_r($post_array, true));
     $batch= $this->subscriber_model->subscribe($post_array);
          
-      file_put_contents('receive.txt', print_r( $batch, true));
+      //file_put_contents('receive.txt', print_r( $batch, true));
         }
 
         

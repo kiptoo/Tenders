@@ -11,7 +11,15 @@
    <meta content="" name="description" />
    <meta content="" name="author" />
    <meta name="MobileOptimized" content="320">
-  
+     <?php 
+foreach($crud->css_files as $file): ?>
+    <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
+ 
+<?php endforeach; ?>
+    <?php foreach($crud->js_files as $file): ?>
+ 
+    <script src="<?php echo $file; ?>"></script>
+<?php endforeach; ?>
    <!-- BEGIN GLOBAL MANDATORY STYLES -->          
    <link href='<?php echo base_url('assets/plugins/font-awesome/css/font-awesome.min.css')?>' rel="stylesheet" type="text/css"/>
     <link href='<?php echo base_url('assets/css/themes/light.css')?>' rel="stylesheet" type="text/css"/>

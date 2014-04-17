@@ -257,65 +257,35 @@ echo form_open_multipart('admin/profile/do_upload',$attributes);?>
                         <div class="row">
                            <div class="col-md-12">
                               <div class="add-portfolio">
-                                  <span><?php echo sizeof($data->tenders)?> Tenders in your Tender box</span>
-                                 <a href='<?php echo site_url('admin/tenders/index/add#output')?>' class="btn add icn-only green">Add a new Tenders <i class="m-icon-swapright m-icon-white"></i></a>                          
-                              </div>
-                           </div>
-                        </div>
-                        <!--end add-portfolio-->
-   <?php foreach($data->tenders as $file): ?>     
-                        <div class="row portfolio-block">
-                           <div class="col-md-2">
-                              <div class="portfolio-text">
-                                 <!--<img src="assets/img/profile/portfolio/logo_metronic.jpg" alt="" />-->
-                                 <div class="portfolio-text-info">
-                                    <h4> <?php echo $file['tender_name'] ?> </h4>
-                                    <p><?php echo $file['descrption'] ?></p>
                                  </div>
-                              </div>
-                           </div>
-                           <div class="col-md-9">
-                                <div class="portfolio-info">
-                                 CLient
-                                 <span><?php echo $file['proc_name'] ?></span>
-                              </div>
-                               <div class="portfolio-info">
-                                 Contract No
-                                 <span><?php echo $file['contract_no'] ?></span>
-                              </div>
-                              <div class="portfolio-info">
-                                 Opening Date
-                                 <span><?php echo $file['opening'] ?></span>
-                              </div>
-                              <div class="portfolio-info">
-                                 Closing Date
-                                 <span><?php echo $file['closing'] ?></span>
-                              </div>
-                                <div class="portfolio-info">
-                                 Category
-                                 <span><?php echo $file['cat_name'] ?></span>
-                              </div>
-                                  <div class="portfolio-info">
-                                 Type
-                                 <span><?php echo $file['type_name'] ?></span>
-                              </div>
-                                  <div class="portfolio-info">
-                                 Region
-                                 <span><?php echo $file['reg_name'] ?></span>
-                              </div>
-                           </div>
-                           <div class="col-md-1">
-                              <div class="portfolio-btn">
-                                  <a href='<?php echo site_url('admin/tenders/index/edit/'.$file['tender_id'] ) ?>'class="btn edit bigicn-only" id="edit"><span>Edit</span></a>                      
-                              </div>
-                                 <div class="portfolio-btn">
-                                 <a href="#" class="btn bigicn-only"><span>Delete</span></a>                      
-                              </div>
                            </div>
                         </div>
-              <?php endforeach; ?>          
                         <!--end row-->
-             
+                          
+         <div class="portlet box green">
+                  <div class="portlet-title">
+                     <div class="caption"><i class="icon-reorder"></i>Tenders</div>
+                    <div class="tools">
+                                    <a href="javascript:;" class="collapse"></a>
+                                    <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                                    <a href="javascript:;" class="reload"></a>
+                                    <a href="javascript:;" class="remove"></a>
+               </div>
+                   
+                  </div>
+                  <div class="portlet-body">
+                    <!--kendo Ui
+                      <div id="example" class="k-content"></div>
+            
+                  </div>-->
+                     <div id="output">
+        <?php echo $crud->output?>
+
+    </div>
+               
+           
+        </div>
+</div>  
                      </div>
                      <!--end tab-pane-->
   <!--end tab-pane-->

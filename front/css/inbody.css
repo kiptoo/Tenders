@@ -1,0 +1,54 @@
+@charset "utf-8";
+/* CSS Document */
+
+    *{
+                padding:0;
+                margin:0;
+            }
+          
+            h1{
+                font-size:180px;
+                line-height:180px;
+                text-transform: uppercase;
+                color:#1275AD;
+                position:absolute;
+                text-shadow:0 1px 1px #45A8DF;
+                top:-25px;
+                left:-20px;
+                white-space: nowrap;
+            }
+            span.reference{
+                position:fixed;
+                left:10px;
+                bottom:10px;
+                font-size:11px;
+            }
+            span.reference a{
+                color:#fff;
+                text-decoration:none;
+                text-transform: uppercase;
+                text-shadow:0 1px 0 #000;
+            }
+            span.reference a:hover{
+                color:#f0f0f0;
+            }
+            .box{
+                margin:129px auto 0 auto;
+                height:430px;
+                width:100%;
+                position:relative;
+                -moz-box-shadow:0px 0px 5px #444;
+                -webkit-box-shadow:0px 0px 5px #444;
+                box-shadow:0px 0px 5px #444;
+                background:#1783BF url(click.png) no-repeat 380px 80px;
+            }
+            .box h2{
+				background-color:#1275AD;
+				border-color:#0E5A85 #0E5A85 #0E5A85;
+				border-style:ridge ridge solid;
+				border-width:1px;
+				color:#FFFFFF;
+				font-size:22px;
+				padding:10px;
+				text-shadow:1px 1px 1px #000000;
+            }

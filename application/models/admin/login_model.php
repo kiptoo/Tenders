@@ -116,7 +116,7 @@ class Login_model extends CI_Model {
 
     if ($decoded_password['passw']=== $post['password'])
     {
-              $this->db->select('user_meta.email,user_meta.file_url,role.name')
+              $this->db->select('user_meta.email,user_meta.file_url,role.role_name')
                        
                         ->where('user_meta.user_id', $qry->row('user_id'))
                         ->from('user_meta')

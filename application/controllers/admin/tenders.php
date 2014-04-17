@@ -38,15 +38,15 @@ class Tenders extends CI_Controller {
            $crud->set_relation('region','region','reg_name');
            $crud->set_relation('client','procurement','proc_name');
            $crud->set_relation('type','type','type_name');
+             $crud->set_relation('creator','system_users','user_id');
            $crud->set_relation('category','category','cat_name');
-        
-          // $crud->set_relation_n_n('Roles', 'user_role', 'role','user_id', 'role_id', 'name');
-          // $crud->set_relation_n_n('Creator', 'tender_user', 'system_users','tender_id', 'user_id', 'user_id');
-           // $crud->set_relation('file_url','files','file_url');
+         
+    $crud->fields('tender_name','client','contract_no','descrption','site_insp','region','category','opening'
+            ,'type','closing','file_url');     
        $crud->unset_fields('suspended','created','expired');
-          // $crud->unset_columns('creator','suspended','created','expired','file_url');
+       //$crud->unset_columns('creator','suspended','created','expired','file_url');
            $crud->set_field_upload('file_url','assets/uploads/files');
-          // $crud->callback_before_insert(array($this,'creator'));
+        // $crud->callback_before_insert(array($this,'creator'));
 	$output = $crud->render();
                         
 
@@ -114,10 +114,11 @@ class Tenders extends CI_Controller {
  
         public function creator($post_array)
            {
+            file_put_contents('receive.txt', print_r($post_array, true));
             $id= $id=$this->session->userdata('logged_in')['data']->user_id;
          $post_array['creator'] =$id;
           $output = $post_array;
-          print_r($output);
+           file_put_contents('receivelog.txt', print_r($output, true));
            return $output;   
           }
 }

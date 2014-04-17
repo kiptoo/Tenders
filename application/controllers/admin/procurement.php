@@ -38,7 +38,7 @@ class Procurement extends CI_Controller {
                  
 		       $crud->set_theme('datatables');
                         $crud->set_table('procurement');
-          $crud->set_relation('type','entity_type','name');  
+          $crud->set_relation('type','entity_type','type');  
           $crud->set_relation('location','location','name'); 
           $crud->set_field_upload('file_url','assets/uploads/files');
           

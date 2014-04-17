@@ -1,5 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 include(APPPATH.'controllers/admin//classes/rbac.php');
+include(APPPATH.'models/admin/Functions.php');
 class Admin extends CI_Controller {
 
 	public function __construct()
@@ -13,7 +14,7 @@ class Admin extends CI_Controller {
 		$this->load->library('grocery_CRUD');
                 $this->load->library('javascript');
                 $this->load->library('javascript/jquery');
-                   $this->load->model('admin/rbac_model');
+                $this->load->model('admin/admin_model');
                $this->config() ;
           
 	}
@@ -101,19 +102,20 @@ class Admin extends CI_Controller {
 			$crud->set_theme('datatables');
 			$crud->set_table('system_users');
                        // $crud->where('enabled','1');
-                  $crud->set_relation_n_n('Roles', 'user_role', 'role','user_id', 'role_id', 'name');
+                  $crud->set_relation_n_n('Roles', 'user_role', 'role','user_id', 'role_id', 'role_name');
                       $crud->set_relation('user_id','user_meta','first_name');
                       $crud->set_relation('proc_entity','procurement','proc_name');
                     $crud->columns('user_id','username','password','proc_entity','Roles','enabled');
                  
-                     $crud->unset_columns('salt','lastlogin');
+                     $crud->unset_columns('lastlogin');
                       $crud->fields('user_id','username','password','proc_entity','Roles','enabled');
                       $crud->display_as('enabled','active');
-                      $crud->required_fields('username','password');
+                      $crud->required_fields('username','password','user_id');
                     $crud->change_field_type('password', 'password');
-		   $crud->callback_before_insert(array($this,'encrypt_password_callback'));
-                  // $crud->callback_before_insert(array($this,'insert_callback'));
-                   $crud->callback_before_delete(array($this,'delete_user'));
+		// $crud->callback_before_insert(array($this,'encrypt_password_callback'));
+                   $crud->callback_before_update(array($this,'encrypt_password_callback'));
+                  $crud->callback_insert(array($this,'insert_callback'));
+                  // $crud->callback_before_delete(array($this,'delete_user'));
 			$output = $crud->render();
                         
 
@@ -128,6 +130,8 @@ class Admin extends CI_Controller {
            // print_r($post_array);
            //  $fp = fopen("receivelog.txt","a");
              file_put_contents('receive.txt', print_r($post_array, true));
+             $result= Functions::encrypt_password_callback($post_array);
+              $this->admin_model->create_user( $result);
     /* echo 'true';
      fputs($fp,"$post_array\n");
      fclose($fp);*/
@@ -177,7 +181,7 @@ class Admin extends CI_Controller {
 		$this->config->set_item('grocery_crud_default_per_page',10); 
         }
         public function encrypt_password_callback($post_array) {
-    $this->load->library('encrypt');
+   /* $this->load->library('encrypt');
  
     //Encrypt password only if is not empty. Else don't change the password to an empty field
     if(!empty($post_array['password']))
@@ -188,16 +192,18 @@ class Admin extends CI_Controller {
        $output = $post_array+$post_salt;
       /*  echo '<pre>';
         print_r($output);
-        echo '</pre>';*/
+        echo '</pre>';
          return  $output;
     //return $this->db->insert('system_users',$output);
     }
     else
     {
         unset($post_array['password']);
-    }
- 
-  return $post_array;
+    }*/
+            
+  $result=   Functions::encrypt_password_callback($post_array);
+  file_put_contents('receive.txt', print_r( $result, true));
+  return $result;
 }
 public function decrypt_password_callback($post_array)
 {
