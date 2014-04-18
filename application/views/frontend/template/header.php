@@ -15,7 +15,10 @@
    <link href='<?php echo base_url('assets/plugins/bootstrap/css/bootstrap.min.css')?>' rel="stylesheet" type="text/css"/>
    <link href='<?php echo base_url('assets/plugins/uniform/css/uniform.default.css')?>' rel="stylesheet" type="text/css"/>
     <link href='<?php echo base_url('assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css')?>' rel="stylesheet" type="text/css"/>
+   <link href='<?php echo base_url('assets/css/drop/jquery-ui-1.8.13.custom.css')?>' rel="stylesheet" type="text/css"/>
+     <link href='<?php echo base_url('assets/css/drop/ui.dropdownchecklist.themeroller.css')?>' rel="stylesheet" type="text/css"/>
      <link href='<?php echo base_url('assets/plugins/bootstrap-datepicker/css/datepicker.css')?>' rel="stylesheet" type="text/css"/>
+   <link href='<?php echo base_url('assets/plugins/bootstrap-datepicker/css/datepicker.css')?>' rel="stylesheet" type="text/css"/>    
    
     <!-- END GLOBAL MANDATORY STYLES -->
 
@@ -28,6 +31,7 @@
    <link href='<?php echo base_url('assets/css/pages/tasks.css')?>' rel="stylesheet" type="text/css"/>
    <link href='<?php echo base_url('assets/css/themes/default.css')?>' rel="stylesheet" type="text/css" id="style_color"/>
    <link href='<?php echo base_url('assets/css/custom.css')?>' rel="stylesheet" type="text/css"/>
+     <link href='<?php echo base_url('assets/plugins/select2/select2_metro.css')?>' rel="stylesheet" type="text/css"/>
      <link href='<?php echo base_url('assets/css/pages/profile.css')?>' rel="stylesheet" type="text/css"/>
    <link href='<?php echo base_url('assets/css/themes/light.css')?>' rel="stylesheet" type="text/css"/>
      <!-- END THEME STYLES -->

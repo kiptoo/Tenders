@@ -40,8 +40,10 @@
             });
         </script>
         <script type="text/javascript">
-         
+       
         $(document).ready(function() {
+   // $("#s1").dropdownchecklist({ firstItemChecksAll: true });
+    
              var Type= new kendo.data.DataSource({
                  
                     serverFiltering: true,
@@ -103,7 +105,7 @@
                     { ProductName: "Chang", ProductID: 2 },
                     { ProductName: "Uncle Bob's Organic Dried Pears", ProductID: 7 }
                 ]*/
-            });
+          });
                    $("#region").kendoMultiSelect({
                 placeholder: "Selec ...",
                  dataTextField: "reg_name",
@@ -115,12 +117,12 @@
                     { ProductName: "Uncle Bob's Organic Dried Pears", ProductID: 7 }
                 ]*/
             });
-                   $("#procurement").kendoMultiSelect({
+                 $("#procurement").kendoMultiSelect({
                 placeholder: "Selec ...",
                  dataTextField: "type",
                 dataValueField: "entity_id",
                 autoBind: false,
-                dataSource: proc,
+                dataSource: proc
                
               /*  value: [
                     { ProductName: "Chang", ProductID: 2 },
@@ -164,7 +166,7 @@
 	padding:0;*/
 	position: absolute;
 	top:20%;
-	left:-1%;
+	left:-2%;
 	z-index:1000;
 	width:25%;
         height:auto;/*
@@ -178,9 +180,9 @@
 	padding:0;*/
 	position: absolute;
 	top:20%;
-	left:30%;
+	left:25%;
 	z-index:1000;
-	width:67%;
+	width:77%;
         height:auto;/*
       border:1px solid rgba(0,0,0,0.65);*/
          }
@@ -201,6 +203,8 @@
   <script src='<?php echo base_url('assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js')?>'></script> 
   <script src='<?php echo base_url('assets/plugins/jquery.blockui.min.js')?>'></script>
   <script src='<?php echo base_url('assets/plugins/jquery.cookie.min.js')?>'></script>
+   <script src='<?php echo base_url('assets/scripts/ui.dropdownchecklist.js')?>'></script>
+  
   <script src='<?php echo base_url('assets/plugins/uniform/jquery.uniform.min.js')?>'></script>
    
         <!-- BEGIN PAGE LEVEL PLUGINS -->	

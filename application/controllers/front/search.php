@@ -41,4 +41,8 @@ class Search extends CI_Controller {
             echo $profile;
          return $profile;
         }
+            public function period($period)
+	{
+          
+        }
 }    
