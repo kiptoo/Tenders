@@ -63,11 +63,18 @@
     <script src='<?php echo base_url('MetroUI/js/prettify/prettify.js')?>'></script>
      <script src='<?php echo base_url('MetroUI/js/metro/metro-dropdown.js')?>'></script>
    <script src='<?php echo base_url('MetroUI/js/load-metro.js')?>'></script>
-
+   <style>
+       .background
+{
+    background-repeat: repeat-y;
+    background-image: url('<?php echo base_url('assets/img/bg/pattern.png')?>');
+    width:200px;
+}
+   </style>
     </head>
     <body class="metro ">
-        <div class="cb-slideshow" style="display: none"> 
-            <img src="../../front/images/2.jpg" alt="kip" style="width: 100%"/>
+        <div class="background" style="display: none"> 
+            
         </div>
             <div class="container">
                 
@@ -79,25 +86,18 @@
             
         </div>
         <span class="element-divider"></span>
- 
+  
+    <a class="element" href="#" style="width:10%;"><span>TENDERS</span></a>
+    <span class="element-divider"></span>
+        <a class="element" href="#" style="width:20%;"><span>PROCUREMENT ENTITIES</span></a>
+        <span class="element-divider"></span>
+        <a class="element" href="#" style="width:10%;"><span>FUNDING</span></a>
+        <span class="element-divider"></span> 
+        <a class="element" href="#" style="width:10%;"><span>INCUBATION</span></a>
+      <span class="element-divider"></span>
 
-        <div class="element place-right">
-            <div>
-            <a class="dropdown-toggle" href="#">
-                <span class="icon-arrow-down-4"></span>
-            </a>
-            <ul class="dropdown-menu place-right" data-role="dropdown">
-                <li><a href="#">Account</a></li>
-                <li><a href="#">Logout</a></li>
-               
-            </ul>
-            </div>
-        </div>
-        <span class="element-divider place-right"></span>
-       
-      
         <button class="element image-button image-left place-right">
-           Evans Kiptoo
+            <a  class="log"href='<?php echo site_url('login');?>'> SUBSCRIBE</a>
            <!-- <img alt="photo"  src="metro/docs/images/clouds.jpg"/>-->
         </button>
     </nav>

@@ -33,7 +33,7 @@ class Login_model extends CI_Model {
            $email = $this->security->xss_clean($this->input->post('email'));
           $username = $this->security->xss_clean($this->input->post('username'));
           $password = $this->security->xss_clean($this->input->post('password'));
-          
+          $selection = $this->security->xss_clean($this->input->post('notification'));
               $post_array=array(
                   'first_name'       => $fname,
                   'last_name'       => $lname,
@@ -42,9 +42,12 @@ class Login_model extends CI_Model {
                   'email'       => $email,
                   'username'       => $username,
                   'password'       =>$password,
+                  'notification'  =>$selection,
               );
-           $result=   Functions::encrypt_password_callback($post_array);
-           return $this->create_user($result);
+            
+              print_r($post_array);
+          /* $result=   Functions::encrypt_password_callback($post_array);
+           return $this->create_user($result);*/
          }
               public function update_meta()
               {

@@ -47,7 +47,7 @@
 	</div>
 	<!-- END LOGO -->
 	<!-- BEGIN LOGIN -->
-	<div class="content">
+        <div id="output" class="content">
 		<!-- BEGIN LOGIN FORM -->
              <?php
              $attributes = array('class' => 'login-form', 'id' => 'myform');
@@ -192,6 +192,38 @@ echo validation_errors();
 					</div>
 				</div>
 			</div>
+             
+                <p>customize to your options</p>
+			<div class="form-group">
+               	<label class="control-label visible-ie8 visible-ie9">method</label>
+				<div class="input-icon">
+				
+                                    <select name="notification" multiple="multiple" class="form-control select2me" data-placeholder="Select category" >
+                                            <option value="sms">SMS</option>
+                                            <option value="email">Email</option>
+                                        </select>
+				</div>
+			</div>
+                	<div class="form-group">
+               	<label class="control-label visible-ie8 visible-ie9">method</label>
+				<div class="input-icon">
+					
+                                    <select name="notification" multiple="multiple" class="form-control select2me" data-placeholder="Select notification method" >
+                                            <option value="sms">SMS</option>
+                                            <option value="email">Email</option>
+                                        </select>
+				</div>
+			</div>
+                	<div class="form-group">
+               	<label class="control-label visible-ie8 visible-ie9">method</label>
+				<div class="input-icon">
+					
+                                    <select name="notification" multiple="multiple" class="form-control select2me" data-placeholder="Select notification method" >
+                                            <option value="sms">SMS</option>
+                                            <option value="email">Email</option>
+                                        </select>
+				</div>
+			</div>
 			<div class="form-group">
 				<label>
 				<input type="checkbox" name="tnc"/> I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
@@ -245,6 +277,7 @@ echo validation_errors();
 <!-- BEGIN PAGE LEVEL PLUGINS -->	
 <script src='<?php echo base_url('assets/plugins/jquery-validation/dist/jquery.validate.min.js')?>'></script>
 <script src='<?php echo base_url('assets/plugins/select2/select2.min.js')?>'></script>
+
 <!-- IMPORTANT! fullcalendar depends on jquery-ui-1.10.3.custom.min.js for drag & drop support -->
 
 <!-- BEGIN PAGE LEVEL SCRIPTS -->

@@ -39,11 +39,91 @@
 				});
             });
         </script>
+   <script type="text/x-kendo-tmpl" id="template">
+     <div class="row portfolio-block">
+      <div class="col-md-2">
+                                <div class="portfolio-text">
+                                 
+                                 <span>#:contract_no#</span>
+                              </div>
+                              
+       </div>  
+            <div class="col-md-2">
+                            
+                               <div class="portfolio-text">
+                                 
+                                 <span>#:proc_name#</span>
+                              </div>
+       </div>              
+      <div class="col-md-4">
+                              <div class="portfolio-text">
+                                 
+                                 <div class="portfolio-text-info">
+                                    <h4> #:tender_name# </h4>
+                                   <p >#=descrption# </p>
+                                 </div>
+                              </div>
+       </div>
+       <div class="col-md-2">
+                            
+                               <div class="portfolio-text">
+                                 
+                                 <span>#:closing#</span>
+                              </div>
+       </div> 
+       <div>
+                             
+                                 <a  class="icon-folder" title="Add to tender box." href="http://localhost/Tenders_CI/index.php/front/search/add_box/#:tender_id#"></a>        
+     </div>                       
+     </div>
+    </script>
         <script type="text/javascript">
        
         $(document).ready(function() {
+            
+          $("#login").click(function(e) {
+              event.preventDefault();
+             var href= $(this).attr('href');
+             load(href);
+        });
+        function load(href){
+                var url = this.href;
+            // show a spinner or something via css
+            var dialog = $('<div style="display:none z-index:1500" class="loading"></div>').appendTo('body');
+            // open the dialog
+            dialog.dialog({
+                width: 400,
+                height: 450,
+                modal: true,
+                
+                // add a close listener to prevent adding multiple divs to the document
+                close: function(event, ui) {
+                    // remove div with all data and events
+                    dialog.remove();
+                }
+              
+            });
+            // load remote content
+            dialog.load(href,{}, function (responseText, textStatus, XMLHttpRequest) {
+                    // remove the loading class
+                    dialog.removeClass('loading');
+                }
+            );
+            //prevent the browser to follow the link
+            return false;
+       
+        }
    // $("#s1").dropdownchecklist({ firstItemChecksAll: true });
-    
+           var dataSource = new kendo.data.DataSource({
+                    transport: {
+                        read: {
+                            url: "http://localhost/Tenders_CI/index.php/front/search/tenders",
+                            dataType: "json"
+                        }
+                    },
+                    pageSize: 5
+                    
+                });
              var Type= new kendo.data.DataSource({
                  
                     serverFiltering: true,
@@ -129,21 +209,60 @@
                     { ProductName: "Uncle Bob's Organic Dried Pears", ProductID: 7 }
                 ]*/
             });
-                 
+             $("#pager").kendoPager({
+                dataSource: dataSource
+            });
+              $("#listView").kendoListView({
+                dataSource: dataSource,
+                 selectable:false,
+                //width:700px,
+                template: kendo.template($("#template").html())
+            });
+   
+        
         });
     </script>
     <style scoped>
+  
+        .mb_footer{
+            z-index: 1200;
+        }
+.tool {
+                    width: 250px;
+                    margin: 35px auto 50px;
+                    padding: 30px;
+                }
+                .tool h2 {
+                    text-transform: uppercase;
+                    font-size: 1.2em;
+                    margin-bottom: 10px;
+                }
+        #listView {
+            padding: 10px;
+            margin-left:10px;
+            margin-right:10px;
+            min-width: 555px;
+            min-height: 510px;
+             border:none; 
+        }
+             #pager {
+            padding: 10px;
+            margin-left:10px;
+            margin-right:10px;
+             border:none; 
+        }
+         .tender
+        {
+          //  float: left;
+            width:auto;
+            height: 110px;
+            margin: 0;
+            padding: 5px;
+            cursor: pointer;
+        }
+    
       
-        .demo-section {
-            width: 300px;
-            margin: 35px auto 50px;
-            padding: 30px;
-        }
-        .demo-section h2 {
-            text-transform: uppercase;
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
+   
          #filter {
        /*background:rgba(255,255,255, 0.9);
  background-color: rgba(0, 149, 197, 0.7);
@@ -194,6 +313,8 @@
         height:10px;   
          }
     </style>
+   <script src='<?php //echo base_url('KendoUI/js/kendo.all.min.js')?>'></script>
+   
       <script src='<?php //echo base_url('assets/plugins/jquery-1.10.2.min.js')?>'></script>
   <script src='<?php echo base_url('assets/plugins/jquery-migrate-1.2.1.min.js')?>'></script>
 <!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
@@ -232,7 +353,8 @@
      Login.init();
          FormSamples.init();
          FormComponents.init();
-  });
+
+    });
 </script>
         </body>
 </html>

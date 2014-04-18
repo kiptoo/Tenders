@@ -1,16 +1,14 @@
 Array
 (
-    [tender_name] => sadsada
-    [client] => 1
-    [contract_no] => dfdsfsd
-    [descrption] => <p>
-	dfvdsfvdsv</p>
+    [user_id] => 3
+    [username] => molos
+    [password] => molos
+    [proc_entity] => 2
+    [Roles] => Array
+        (
+            [0] => 9
+        )
 
-    [site_insp] => 18/04/2014
-    [region] => 7
-    [category] => 1
-    [opening] => 15/04/2014
-    [type] => 1
-    [closing] => 30/04/2014
-    [file_url] => 
+    [enabled] => 1
+    [is_ajax] => true
 )

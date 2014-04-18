@@ -1,11 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Search extends CI_Controller {
-
-	public function __construct()
+   
+    public function __construct()
 	{
 		parent::__construct();
-
 		$this->load->database();
 		$this->load->helper('url');
               $this->load->helper('directory');
@@ -45,4 +44,36 @@ class Search extends CI_Controller {
 	{
           
         }
+             public function tenders()
+	{
+                  $tenders = $this->search_model->tenders();
+            echo$tenders;
+         return $tenders;
+          
+        }
+             public function tender($id)
+	{
+           $tender = $this->search_model->tender($id);
+            echo $tender;
+         return $tender;
+        }
+                public function add_box($id)
+       {
+             if($this->session->userdata('logged_in'))
+                 {
+                            $user_id= $this->session->userdata('logged_in')['data']->user_id;
+                            $selection= array(
+                                        'user_id'=> $user_id,
+                                         'tender_id'=> $id
+                                );
+                            $tender = $this->search_model->add_box($selection);
+                              echo 'weldone';
+                                return TRUE;
+              
+                    } 
+          else{
+                echo 'fail';
+              return FALSE;           
+          }
+      }
 }    

@@ -72,7 +72,7 @@
                            </div>
                                     </div>
                                        
-                                    <div class="row">
+                                    <div class="row ">
                                   <div class="col-md-12">   
                                        
                                 <div class="form-group">
@@ -107,7 +107,7 @@
                    
 
 <div class="show" >
-       
+
                         <div class="portlet box blue">
                            <div class="portlet-title" style="height:50px">
                                <div class="caption" style="margin-top: 2px"><i class="icon-list"></i> Search & Browse Tenders</div>
@@ -120,36 +120,15 @@
                            <div class="col-md-12">
                               <div class="add-portfolio">
                                   <div class="col-md-3"><span>Contract No</span></div>
-                                  <div class="col-md-2"><span>Name</span></div>
+                                  <div class="col-md-2"><span>Client</span></div>
                                   <div class="col-md-3"><span>Description</span></div>
-                                  <div class="col-md-2"><span>Category</span></div>
+                                  <div class="col-md-12"><span>Closing</span></div>
                                   </div>
                            </div>
+                  <div id="listView"></div>
+             <div id="pager" class="k-pager-wrap"></div>                  
                         </div>  
                                        
-                                             <div class="row">
-                           <div class="col-md-12">
-                              <div class="add-portfolio">
-                                  <div class="col-md-3"><span>Contract No</span></div>
-                                  <div class="col-md-2"><span>Name</span></div>
-                                  <div class="col-md-3"><span>Description</span></div>
-                                  <div class="col-md-2"><span>Category</span></div>
-                                  </div>
-                           </div>
-                        </div>  
-                                       
-                                     <div class="row">
-                           <div class="col-md-12">
-                              <div class="add-portfolio">
-                                  <div class="col-md-3"><span>Contract No</span></div>
-                                  <div class="col-md-2"><span>Name</span></div>
-                                  <div class="col-md-3"><span>Description</span></div>
-                                  <div class="col-md-2"><span>Category</span></div>
-                                  </div>
-                           </div>
-                        </div>  
-                                      
-                          
                                   </div> 
                                
                               

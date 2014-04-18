@@ -363,7 +363,7 @@
 </script>
  <script type="text/javascript">
     $(function (){
-        $('a.add').click(function() {
+        $('a.edit').click(function() {
             var url = this.href;
             // show a spinner or something via css
             var dialog = $('<div style="display:none" class="loading"></div>').appendTo('body');
